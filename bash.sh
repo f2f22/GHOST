@@ -1,27 +1,18 @@
 #!/bin/bash
 
+
 figlet -c F 2 F | perl -nle 'print' 
-
-sleep 5
-echo "-scan : 1 "
-echo "-open camira : 2 "
-echo "-hake wife : 3 "
-echo "-passwd : 4 "
-echo "-exit: 0 "
-echo "======================================"
-read -p "ENTER YOUR CHOSE : ># " enter
-
-case "$enter" in
-    1) echo "open nmap for scan"
-    ;;
-    2) echo "open camira for android"
-    ;;
-    3) echo "hake wife wp2 | wps2"
-    ;;
-    4) echo "hake password fb and instgram and twitter"
-    ;;
-    0) exit
-    ;;
-    *) echo "not fonde"
-    ;;
-esac
+echo "Welcome to My Script" $0
+sleep 1
+read -p "the domains list : " domainslist
+if [ -z $domainslist ]; then
+    echo "the domains list !!"
+    exit
+fi
+echo ".... Start Search ...."
+sleep 2 
+for domain in $(cat $domainslist); do
+    firefox --new-tab "https://searchdns.netcraft.com/?host=$domain&x=0&y=0" &
+    sleep 2
+done
+#firefox --new-tab "https://searchdns.netcraft.com/?host=$domain&x=0&y=0"
