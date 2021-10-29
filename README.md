@@ -1,6 +1,6 @@
 # test_shel
 
-- Orders run the tool :
+Orders run the tool :
 
 $ sudo chmod +x bash.sh
 
